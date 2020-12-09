@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_09_155821) do
+ActiveRecord::Schema.define(version: 2020_12_09_164524) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,4 +23,22 @@ ActiveRecord::Schema.define(version: 2020_12_09_155821) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "registrations", force: :cascade do |t|
+    t.bigint "server_id", null: false
+    t.bigint "lock_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "time"
+    t.index ["lock_id"], name: "index_registrations_on_lock_id"
+    t.index ["server_id"], name: "index_registrations_on_server_id"
+  end
+
+  create_table "servers", force: :cascade do |t|
+    t.string "code_name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  add_foreign_key "registrations", "locks"
+  add_foreign_key "registrations", "servers"
 end
