@@ -7,5 +7,6 @@ class CreateLocks < ActiveRecord::Migration[6.0]
 
       t.timestamps
     end
+    change_column :locks, :id, :string
   end
 end
