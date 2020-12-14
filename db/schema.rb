@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_09_165110) do
+ActiveRecord::Schema.define(version: 2020_12_14_102600) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "locks", force: :cascade do |t|
     t.string "kind"
-    t.string "status_change"
+    t.string "status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

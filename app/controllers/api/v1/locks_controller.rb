@@ -4,17 +4,14 @@ class Api::V1::LocksController < Api::V1::BaseController
   end
 
   def create
-    # @lock = Lock.new(lock_params)
     token = params[:token]
-    p request.raw_post
     # @lock.server = current_user
-    # authorize @restaurant
     # @lock.save
   end
 
-  private
+  # private
 
-  def lock_params
-    params.require(:lock).permit(:kind, :status_change)
-  end
+  # def lock_params
+  #   params.require(:lock).permit(:kind, :status_change)
+  # end
 end
