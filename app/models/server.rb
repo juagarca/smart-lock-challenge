@@ -1,3 +1,4 @@
 class Server < ApplicationRecord
-  has_many :registrations
+
+  # has_secure_token
 end
